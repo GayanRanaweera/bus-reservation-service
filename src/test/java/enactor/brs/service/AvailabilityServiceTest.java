@@ -33,6 +33,22 @@ class AvailabilityServiceTest {
     }
 
     /**
+     * When passengers exceeded available sheets
+     */
+    @Test
+    void testAvailabilityWithExceededPassengers() {
+        AvailabilityRequest req = new AvailabilityRequest();
+        req.setPassengers(41);
+        req.setOrigin("A");
+        req.setDestination("C");
+
+        AvailabilityResponse res = service.checkAvailability(req);
+
+        assertNotNull(res);
+        assertTrue(res.getAvailableSeats() <= 40);
+    }
+
+    /**
      * Price calculation should be correct
      */
     @Test
