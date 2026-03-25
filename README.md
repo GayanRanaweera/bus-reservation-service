@@ -44,19 +44,19 @@ Start Tomcat:
 GET /api/availability
 
 Example:
-http://localhost:8080/bus-reservation-service/api/availability?passengers=2&origin=A&destination=C
+http://localhost:8080/enactor-brs/api/availability?passengers=2&origin=A&destination=C
 
 Generic format:
-http://<server-ip>:<port>/bus-reservation-service/api/availability?passengers=2&origin=A&destination=C
+http://<server-ip>:<port>/enactor-brs/api/availability?passengers=2&origin=A&destination=C
 ---
 
 ### 2. Reserve Seats
 POST /api/reserve
 
-http://localhost:8080/bus-reservation-service/api/reserve
+http://localhost:8080/enactor-brs/api/reserve
 
 Generic format:
-http://<server-ip>:<port>/bus-reservation-service/api/reserve
+http://<server-ip>:<port>/enactor-brs/api/reserve
 
 
 Body:

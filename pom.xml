@@ -53,7 +53,7 @@
   </dependencies>
 
   <build>
-    <finalName>Enactor_BRS_${version}</finalName>
+    <finalName>enactor-brs</finalName>
 
     <plugins>
       <plugin>
@@ -62,6 +62,13 @@
         <version>3.2.5</version>
       </plugin>
     </plugins>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
   </build>
 
 </project>
