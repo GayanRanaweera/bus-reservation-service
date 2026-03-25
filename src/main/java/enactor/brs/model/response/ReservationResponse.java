@@ -67,4 +67,17 @@ public class ReservationResponse {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    @Override
+    public String toString() {
+        return "ReservationResponse{" +
+                "ticketNumber='" + ticketNumber + 
+                ", seats=" + seats +
+                ", origin='" + origin + 
+                ", destination='" + destination + 
+                ", totalPrice=" + totalPrice +
+                ", status='" + status + 
+                ", reason='" + reason + 
+                '}';
+    }
 }

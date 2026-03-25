@@ -7,7 +7,12 @@ import enactor.brs.model.response.AvailabilityResponse;
 import enactor.brs.store.InMemoryStore;
 import enactor.brs.util.PriceUtil;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class AvailabilityService {
+
+    private static final Logger logger = LogManager.getLogger(AvailabilityService.class);
 
     /**
      * Method to check availability and price.
@@ -21,6 +26,7 @@ public class AvailabilityService {
         // If not enough seats → fail response
         if(availableSeats<availabilityRequest.getPassengers()){
             availabilityResponse.setAvailableSeats(availableSeats);
+            logger.error("Error in checkAvailability:{}",ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             availabilityResponse.setStatus(Constants.STATUS_FAIL);
             availabilityResponse.setReason(ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             return availabilityResponse;

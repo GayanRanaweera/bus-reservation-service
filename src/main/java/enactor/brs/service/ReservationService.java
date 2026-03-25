@@ -6,11 +6,14 @@ import enactor.brs.model.request.ReservationRequest;
 import enactor.brs.model.response.ReservationResponse;
 import enactor.brs.store.InMemoryStore;
 import enactor.brs.util.PriceUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
 public class ReservationService {
 
+    private static final Logger logger = LogManager.getLogger(ReservationService.class);
     private final InMemoryStore store = InMemoryStore.getInstance();
 
     /**
@@ -32,6 +35,7 @@ public class ReservationService {
 
         // Validate price
         if (Math.abs(confirmPrice - totalPrice) > 0) {
+            logger.error("Error in reserveSeats:{}",ErrorMessage.PRICE_MISMATCH.getMessage());
             reservationResponse.setStatus(Constants.STATUS_FAIL);
             reservationResponse.setReason(ErrorMessage.PRICE_MISMATCH.getMessage());
             return reservationResponse;
@@ -41,6 +45,7 @@ public class ReservationService {
         List<String> available = store.getAvailableSeats();
 
         if (available.size() < passengers) {
+            logger.error("Error in reserveSeats:{}",ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             reservationResponse.setStatus(Constants.STATUS_FAIL);
             reservationResponse.setReason(ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             return reservationResponse;

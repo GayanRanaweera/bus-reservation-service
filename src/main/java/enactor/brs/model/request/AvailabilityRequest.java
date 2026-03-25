@@ -28,4 +28,13 @@ public class AvailabilityRequest {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+
+    @Override
+    public String toString() {
+        return "AvailabilityRequest{" +
+                "passengers=" + passengers +
+                ", origin='" + origin +
+                ", destination='" + destination +
+                '}';
+    }
 }

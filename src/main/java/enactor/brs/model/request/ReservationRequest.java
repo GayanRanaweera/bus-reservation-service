@@ -37,4 +37,14 @@ public class ReservationRequest {
     public void setConfirmPrice(Double confirmPrice) {
         this.confirmPrice = confirmPrice;
     }
+
+    @Override
+    public String toString() {
+        return "ReservationRequest{" +
+                "passengers=" + passengers +
+                ", origin='" + origin +
+                ", destination='" + destination +
+                ", confirmPrice=" + confirmPrice +
+                '}';
+    }
 }

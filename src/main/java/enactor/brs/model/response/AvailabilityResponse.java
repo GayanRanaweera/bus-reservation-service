@@ -37,4 +37,14 @@ public class AvailabilityResponse {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    @Override
+    public String toString() {
+        return "AvailabilityResponse{" +
+                "availableSeats=" + availableSeats +
+                ", totalPrice=" + totalPrice +
+                ", status='" + status +
+                ", reason='" + reason +
+                '}';
+    }
 }
