@@ -35,7 +35,7 @@ public class ReservationService {
 
         // Validate price
         if (Math.abs(confirmPrice - totalPrice) > 0) {
-            logger.error("Error in reserveSeats:{}",ErrorMessage.PRICE_MISMATCH.getMessage());
+            logger.error("Error in reserveSeats:{}", ErrorMessage.PRICE_MISMATCH.getMessage());
             reservationResponse.setStatus(Constants.STATUS_FAIL);
             reservationResponse.setReason(ErrorMessage.PRICE_MISMATCH.getMessage());
             return reservationResponse;
@@ -45,7 +45,7 @@ public class ReservationService {
         List<String> available = store.getAvailableSeats();
 
         if (available.size() < passengers) {
-            logger.error("Error in reserveSeats:{}",ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
+            logger.error("Error in reserveSeats:{}", ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             reservationResponse.setStatus(Constants.STATUS_FAIL);
             reservationResponse.setReason(ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             return reservationResponse;

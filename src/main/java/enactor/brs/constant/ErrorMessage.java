@@ -18,8 +18,7 @@ public enum ErrorMessage {
     INVALID_JSON_FORMAT_OR_DATA_TYPE("Invalid JSON format or data type"),
     INVALID_REQUEST_BODY("Invalid request body"),
     EMPTY_REQUEST_BODY("Request body is empty"),
-    INTERNAL_SERVER_ERROR("Internal Server Error")
-    ;
+    INTERNAL_SERVER_ERROR("Internal Server Error");
 
     private final String message;
 

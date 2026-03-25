@@ -30,8 +30,8 @@ public class ReservationServlet extends BaseServlet {
             logger.info("Incoming reservation request: {}", payLoad);
 
             // Convert JSON -> Object
-            ReservationRequest reservationRequest= RequestBuilder.buildReservationRequest(payLoad);
-            logger.info("reservationRequest : {}",reservationRequest);
+            ReservationRequest reservationRequest = RequestBuilder.buildReservationRequest(payLoad);
+            logger.info("reservationRequest : {}", reservationRequest);
 
             // Validate
             validationService.validateReservation(reservationRequest);
@@ -40,18 +40,18 @@ public class ReservationServlet extends BaseServlet {
             ReservationResponse reservationResponse = reservationService.reserveSeats(reservationRequest);
 
             // Respond
-            writeResponse(response,reservationResponse,HttpServletResponse.SC_OK);
+            writeResponse(response, reservationResponse, HttpServletResponse.SC_OK);
 
             logger.info("reservationResponse: {}", reservationResponse);
 
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
 
             logger.error("Error in ReservationService: {}", e);
 
             writeResponse(response,
                     errorResponse(e.getMessage()),
                     HttpServletResponse.SC_BAD_REQUEST);
-        }catch (Exception e){
+        } catch (Exception e) {
 
             logger.error("Error in ReservationService: {}", e);
 

@@ -25,31 +25,31 @@ public class AvailabilityServlet extends BaseServlet {
             throws IOException {
         try {
             // Read query string
-            logger.info("Incoming availability request: {}",request.getQueryString());
+            logger.info("Incoming availability request: {}", request.getQueryString());
 
             // Convert JSON -> Object
             AvailabilityRequest availabilityRequest = RequestBuilder.buildAvailabilityRequest(request);
-            logger.info("availabilityRequest : {}",availabilityRequest);
+            logger.info("availabilityRequest : {}", availabilityRequest);
 
             // Validate
             validationService.validateAvailability(availabilityRequest);
 
             // Process
-            AvailabilityResponse  availabilityResponse = availabilityService.checkAvailability(availabilityRequest);
+            AvailabilityResponse availabilityResponse = availabilityService.checkAvailability(availabilityRequest);
 
             // Respond
-            writeResponse(response,availabilityResponse,HttpServletResponse.SC_OK);
+            writeResponse(response, availabilityResponse, HttpServletResponse.SC_OK);
 
             logger.info("availabilityResponse: {}", availabilityResponse);
 
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
 
             logger.error("Error in AvailabilityServlet: {}", e);
 
             writeResponse(response,
                     errorResponse(e.getMessage()),
                     HttpServletResponse.SC_BAD_REQUEST);
-        }catch (Exception e){
+        } catch (Exception e) {
 
             logger.error("Error in AvailabilityServlet: {}", e);
 

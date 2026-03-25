@@ -17,16 +17,16 @@ public class AvailabilityService {
     /**
      * Method to check availability and price.
      */
-    public AvailabilityResponse checkAvailability(AvailabilityRequest availabilityRequest){
+    public AvailabilityResponse checkAvailability(AvailabilityRequest availabilityRequest) {
 
         AvailabilityResponse availabilityResponse = new AvailabilityResponse();
 
         int availableSeats = getAvailableSeats();
 
         // If not enough seats → fail response
-        if(availableSeats<availabilityRequest.getPassengers()){
+        if (availableSeats < availabilityRequest.getPassengers()) {
             availabilityResponse.setAvailableSeats(availableSeats);
-            logger.error("Error in checkAvailability:{}",ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
+            logger.error("Error in checkAvailability:{}", ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             availabilityResponse.setStatus(Constants.STATUS_FAIL);
             availabilityResponse.setReason(ErrorMessage.NOT_ENOUGH_SEATS.getMessage());
             return availabilityResponse;

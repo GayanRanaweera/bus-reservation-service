@@ -31,23 +31,23 @@ public class RequestBuilder {
         // Validate input parameters
         int passengers;
         if (passengersStr == null || passengersStr.trim().isEmpty()) {
-            logger.error("Error in buildAvailabilityRequest: {}",ErrorMessage.PASSENGERS_REQUIRED.getMessage());
+            logger.error("Error in buildAvailabilityRequest: {}", ErrorMessage.PASSENGERS_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.PASSENGERS_REQUIRED.getMessage());
         }
         try {
             passengers = Integer.parseInt(passengersStr.trim());
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             logger.error("Error in buildAvailabilityRequest: {}", e);
             throw new IllegalArgumentException(ErrorMessage.PASSENGERS_MUST_BE_NUMBER.getMessage());
         }
 
         if (origin == null || origin.trim().isEmpty()) {
-            logger.error("Error in buildAvailabilityRequest: {}",ErrorMessage.ORIGIN_REQUIRED.getMessage());
+            logger.error("Error in buildAvailabilityRequest: {}", ErrorMessage.ORIGIN_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.ORIGIN_REQUIRED.getMessage());
         }
 
         if (destination == null || destination.trim().isEmpty()) {
-            logger.error("Error in buildAvailabilityRequest: {}",ErrorMessage.DESTINATION_REQUIRED.getMessage());
+            logger.error("Error in buildAvailabilityRequest: {}", ErrorMessage.DESTINATION_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.DESTINATION_REQUIRED.getMessage());
         }
 
@@ -72,48 +72,48 @@ public class RequestBuilder {
         try {
             reservationRequest = gson.fromJson(payLoad, ReservationRequest.class);
         } catch (JsonSyntaxException e) {
-            logger.error("Error in buildReservationRequest: {}",e);
+            logger.error("Error in buildReservationRequest: {}", e);
             throw new IllegalArgumentException(ErrorMessage.INVALID_JSON_FORMAT_OR_DATA_TYPE.getMessage());
         } catch (Exception e) {
-            logger.error("Error in buildReservationRequest: {}",e);
+            logger.error("Error in buildReservationRequest: {}", e);
             throw new IllegalArgumentException(ErrorMessage.INVALID_REQUEST_BODY.getMessage());
         }
 
         // Object and fields validations
         if (reservationRequest == null) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.EMPTY_REQUEST_BODY.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.EMPTY_REQUEST_BODY.getMessage());
             throw new IllegalArgumentException(ErrorMessage.EMPTY_REQUEST_BODY.getMessage());
         }
 
         Integer passengers = reservationRequest.getPassengers();
         if (passengers == null) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.PASSENGERS_REQUIRED.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.PASSENGERS_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.PASSENGERS_REQUIRED.getMessage());
         }
         if (passengers <= 0) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.INVALID_PASSENGERS.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.INVALID_PASSENGERS.getMessage());
             throw new IllegalArgumentException(ErrorMessage.INVALID_PASSENGERS.getMessage());
         }
 
         String origin = reservationRequest.getOrigin();
         if (origin == null || origin.trim().isEmpty()) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.ORIGIN_REQUIRED.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.ORIGIN_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.ORIGIN_REQUIRED.getMessage());
         }
 
         String destination = reservationRequest.getDestination();
         if (destination == null || destination.trim().isEmpty()) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.DESTINATION_REQUIRED.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.DESTINATION_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.DESTINATION_REQUIRED.getMessage());
         }
 
         Double confirmPrice = reservationRequest.getConfirmPrice();
         if (confirmPrice == null) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.CONFIRM_PRICE_REQUIRED.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.CONFIRM_PRICE_REQUIRED.getMessage());
             throw new IllegalArgumentException(ErrorMessage.CONFIRM_PRICE_REQUIRED.getMessage());
         }
         if (confirmPrice <= 0) {
-            logger.error("Error in buildReservationRequest: {}",ErrorMessage.INVALID_CONFIRM_PRICE.getMessage());
+            logger.error("Error in buildReservationRequest: {}", ErrorMessage.INVALID_CONFIRM_PRICE.getMessage());
             throw new IllegalArgumentException(ErrorMessage.INVALID_CONFIRM_PRICE.getMessage());
         }
 
