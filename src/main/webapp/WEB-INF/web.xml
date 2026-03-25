@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+  <display-name>Bus Reservation API</display-name>
+
+  <servlet>
+    <servlet-name>AvailabilityServlet</servlet-name>
+    <servlet-class>enactor.brs.servlet.AvailabilityServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AvailabilityServlet</servlet-name>
+    <url-pattern>/api/availability</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ReservationServlet</servlet-name>
+    <servlet-class>enactor.brs.servlet.ReservationServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ReservationServlet</servlet-name>
+    <url-pattern>/api/reserve</url-pattern>
+  </servlet-mapping>
+
+</web-app>
