@@ -10,7 +10,7 @@
 
         <!-- Rolling File Logger -->
         <RollingFile name="FileLogger"
-                     fileName="${sys:catalina.base}/logs/BRS.log"
+                     fileName="${sys:catalina.base}/logs/enactor-brs.log"
                      filePattern="${sys:catalina.base}/logs/BRS-%d{yyyy-MM-dd}-%i.log.gz">
 
             <PatternLayout pattern="[v${project.version}] %d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c{1}.%M:%L - %msg%n"/>
