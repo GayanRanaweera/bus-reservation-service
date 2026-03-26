@@ -41,22 +41,22 @@ Start Tomcat:
 ## API Endpoints
 
 ### 1. Check Availability
-GET /api/availability
+GET /api/v1/availability
 
 Example:
-http://localhost:8080/enactor-brs/api/availability?passengers=2&origin=A&destination=C
+http://localhost:8080/enactor-brs/api/v1/availability?passengers=2&origin=A&destination=C
 
 Generic format:
-http://<server-ip>:<port>/enactor-brs/api/availability?passengers=2&origin=A&destination=C
+http://<server-ip>:<port>/enactor-brs/api/v1/availability?passengers=2&origin=A&destination=C
 ---
 
 ### 2. Reserve Seats
-POST /api/reserve
+POST /api/v1/reserve
 
-http://localhost:8080/enactor-brs/api/reserve
+http://localhost:8080/enactor-brs/api/v1/reserve
 
 Generic format:
-http://<server-ip>:<port>/enactor-brs/api/reserve
+http://<server-ip>:<port>/enactor-brs/api/v1/reserve
 
 
 Body:

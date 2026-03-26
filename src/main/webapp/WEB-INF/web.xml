@@ -14,7 +14,7 @@
 
   <servlet-mapping>
     <servlet-name>AvailabilityServlet</servlet-name>
-    <url-pattern>/api/availability</url-pattern>
+    <url-pattern>/api/v1/availability</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -24,7 +24,7 @@
 
   <servlet-mapping>
     <servlet-name>ReservationServlet</servlet-name>
-    <url-pattern>/api/reserve</url-pattern>
+    <url-pattern>/api/v1/reserve</url-pattern>
   </servlet-mapping>
 
 </web-app>
